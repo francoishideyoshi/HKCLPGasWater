@@ -19,7 +19,11 @@ concurrency:
 
 jobs:
   update:
-    runs-on: ubuntu-latest
+    # Pinned to 22.04: on ubuntu-24.04 (now "ubuntu-latest") Playwright's
+    # --with-deps requests libasound2, which was renamed to libasound2t64 and
+    # has "no installation candidate", breaking `playwright install --with-deps`.
+    # 22.04 still ships libasound2. (Alternative: bump playwright>=1.45.)
+    runs-on: ubuntu-22.04
     timeout-minutes: 15
     steps:
       - name: Checkout
