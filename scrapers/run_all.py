@@ -28,13 +28,9 @@ from .common import (
     SCHEMA_VERSION,
     make_provider,
     now_iso,
-    parse_iso,
     safe_run,
     validate_provider_dict,
 )
-
-# How old (in days) a carried-over value may be before we flag it stale anyway.
-STALE_AFTER_DAYS = 1
 
 # Repo-root-relative paths.
 _HERE = os.path.dirname(os.path.abspath(__file__))
@@ -101,15 +97,6 @@ def _previous_provider(previous: Optional[dict], provider: str) -> Optional[dict
     return entry
 
 
-def _is_old(as_of: Optional[str]) -> bool:
-    """True if the asOf timestamp is older than STALE_AFTER_DAYS."""
-    dt = parse_iso(as_of)
-    if dt is None:
-        return True
-    age = parse_iso(now_iso()) - dt
-    return age.total_seconds() > STALE_AFTER_DAYS * 86400
-
-
 # ---------------------------------------------------------------------------
 # Merge logic for a single provider
 # ---------------------------------------------------------------------------
@@ -161,11 +148,11 @@ def build_data(env: Optional[dict] = None) -> dict:
         scraped = safe_run(provider, lambda fn=scrape_fn: fn(env))
         merged = merge_provider(provider, scraped, manual, previous)
 
-        # Final safety: a carried-over OK value that's actually old -> stale.
-        if merged.get("ok") and merged.get("source") == "manual" and _is_old(merged.get("asOf")):
-            merged = dict(merged)
-            merged["stale"] = True
-
+        # NOTE: explicit manual values are authoritative and never auto-staled --
+        # if you enter a value in manual_data.json it shows live regardless of its
+        # asOf. Carried-over previous scrapes are already marked stale in
+        # merge_provider step 3. The widget still applies its own STALE_AFTER_DAYS
+        # check against asOf for display.
         if not validate_provider_dict(merged):
             # Last-resort fallback so output is always schema-valid.
             merged = make_provider(provider, ok=False, error="internal merge produced invalid entry")

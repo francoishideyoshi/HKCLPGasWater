@@ -70,19 +70,20 @@ Secrets are encrypted, injected only at run time, and never committed.
 
 ## 5. Set the mode per provider (optional)
 
-By default every provider is in **`auto`** (scrape) mode. To make a provider
-**manual** instead (recommended for CLP — see Troubleshooting), add a
-**Variable** (not a secret): **Settings → Secrets and variables → Actions →
-Variables tab → New repository variable**:
+By default every provider is already in **`auto`** (scrape) mode — you do **not**
+need to add anything to keep a provider on auto. Only add a **Variable** to force
+a provider into **manual** mode (recommended for CLP — see Troubleshooting):
+**Settings → Secrets and variables → Actions → Variables tab → New repository
+variable**:
 
-| Variable name | Value |
-|---|---|
-| `CLP_PROVIDER_MODE` | `manual` |
-| `TOWNGAS_PROVIDER_MODE` | `auto` |
-| `WSD_PROVIDER_MODE` | `auto` |
+| Variable name | Value | When to add |
+|---|---|---|
+| `CLP_PROVIDER_MODE` | `manual` | Recommended — CLP login is OTP-only, can't be scraped |
+| `TOWNGAS_PROVIDER_MODE` | `manual` | Only if Towngas scraping doesn't work for you |
+| `WSD_PROVIDER_MODE` | `manual` | Only if WSD scraping doesn't work for you |
 
-In `manual` mode the scraper is skipped and the value comes from
-`manual_data.json` (see step 9).
+Leave a provider's variable **unset** to keep it on auto. In `manual` mode the
+scraper is skipped and the value comes from `manual_data.json` (see step 9).
 
 ## 6. Run the Action once, manually
 

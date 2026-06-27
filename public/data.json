@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-27T09:08:09Z",
+  "updatedAt": "2026-06-27T09:26:30Z",
   "providers": {
     "clp": {
       "provider": "clp",
@@ -9,7 +9,7 @@
       "value": null,
       "unit": "kWh",
       "period": null,
-      "asOf": "2026-06-27T09:08:09Z",
+      "asOf": "2026-06-27T09:26:30Z",
       "source": "manual",
       "stale": false,
       "error": "no CLP_USERNAME/CLP_PASSWORD set; using manual fallback"
@@ -21,7 +21,7 @@
       "value": null,
       "unit": "units",
       "period": null,
-      "asOf": "2026-06-27T09:08:09Z",
+      "asOf": "2026-06-27T09:26:30Z",
       "source": "manual",
       "stale": false,
       "error": "no TOWNGAS_USERNAME/TOWNGAS_PASSWORD set; using manual fallback"
@@ -33,7 +33,7 @@
       "value": null,
       "unit": "m3",
       "period": null,
-      "asOf": "2026-06-27T09:08:09Z",
+      "asOf": "2026-06-27T09:26:30Z",
       "source": "manual",
       "stale": false,
       "error": "no WSD_USERNAME/WSD_PASSWORD set; using manual fallback"

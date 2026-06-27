@@ -19,7 +19,9 @@
 const RAW_URL =
   "https://raw.githubusercontent.com/USER/REPO/main/public/data.json";
 
-// How many days old before we visually flag a reading as stale (matches builder).
+// How many days old before the widget visually flags a reading as stale.
+// (Builder marks carried-over scrapes stale immediately; manual values are never
+// auto-staled by the builder, so this client-side asOf check is what ages them.)
 const STALE_AFTER_DAYS = 2;
 
 // ---- Theme ----------------------------------------------------------------

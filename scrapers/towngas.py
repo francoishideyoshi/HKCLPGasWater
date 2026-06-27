@@ -159,7 +159,11 @@ def scrape_towngas(env: Optional[dict] = None) -> dict:
             page.wait_for_load_state("networkidle")
 
             page.goto(USAGE_URL, wait_until="networkidle")
-            html = page.content()
+            # If SEL_CONSUMPTION matches, parse just that element's text; else fall
+            # back to the whole page. Editing SEL_CONSUMPTION above thus changes
+            # what gets parsed.
+            _el = page.query_selector(SEL_CONSUMPTION)
+            html = _el.inner_text() if _el else page.content()
             browser.close()
 
         parsed = parse_towngas(html)
