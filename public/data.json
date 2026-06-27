@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-06-27T09:08:09Z",
+  "providers": {
+    "clp": {
+      "provider": "clp",
+      "label": "CLP Electricity",
+      "ok": false,
+      "value": null,
+      "unit": "kWh",
+      "period": null,
+      "asOf": "2026-06-27T09:08:09Z",
+      "source": "manual",
+      "stale": false,
+      "error": "no CLP_USERNAME/CLP_PASSWORD set; using manual fallback"
+    },
+    "towngas": {
+      "provider": "towngas",
+      "label": "Towngas",
+      "ok": false,
+      "value": null,
+      "unit": "units",
+      "period": null,
+      "asOf": "2026-06-27T09:08:09Z",
+      "source": "manual",
+      "stale": false,
+      "error": "no TOWNGAS_USERNAME/TOWNGAS_PASSWORD set; using manual fallback"
+    },
+    "wsd": {
+      "provider": "wsd",
+      "label": "Water (WSD)",
+      "ok": false,
+      "value": null,
+      "unit": "m3",
+      "period": null,
+      "asOf": "2026-06-27T09:08:09Z",
+      "source": "manual",
+      "stale": false,
+      "error": "no WSD_USERNAME/WSD_PASSWORD set; using manual fallback"
+    }
+  }
+}

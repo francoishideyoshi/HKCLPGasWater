@@ -1,0 +1,26 @@
+{
+  "_comment": "User-editable manual values. For any provider you cannot automate (e.g. CLP OTP), set PROVIDER_MODE=manual in the Action and put the latest number you read off the portal here. Only 'value' is required per provider; unit/period/label are optional and will be filled in with defaults. asOf should be an ISO-8601 UTC timestamp (e.g. 2026-06-27T00:00:00Z); leave it out to use 'now'. A null value means 'no manual value' (provider falls back to scrape/last-known/error).",
+  "providers": {
+    "clp": {
+      "value": null,
+      "unit": "kWh",
+      "period": "May 2026",
+      "asOf": "2026-06-01T00:00:00Z",
+      "label": "CLP Electricity"
+    },
+    "towngas": {
+      "value": null,
+      "unit": "units",
+      "period": "Apr-Jun 2026",
+      "asOf": "2026-06-01T00:00:00Z",
+      "label": "Towngas"
+    },
+    "wsd": {
+      "value": null,
+      "unit": "m3",
+      "period": "Mar-Jun 2026 (4-monthly)",
+      "asOf": "2026-06-01T00:00:00Z",
+      "label": "Water (WSD)"
+    }
+  }
+}

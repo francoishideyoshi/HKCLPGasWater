@@ -1,0 +1,32 @@
+# Secrets / local env -- NEVER commit real credentials
+.env
+.env.*
+!.env.example
+*.local
+secrets*.json
+cookies*.json
+session*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+.pytest_cache/
+
+# Playwright browser caches / artifacts
+.cache/
+ms-playwright/
+playwright-report/
+test-results/
+
+# Node (widget tooling, if any)
+node_modules/
+
+# OS
+.DS_Store
+
+# Pipeline scratch artifacts (planner/coder/tester/reviewer handoffs)
+.pipeline/

@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HK Utilities data.json",
+  "type": "object",
+  "required": ["schemaVersion", "updatedAt", "providers"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "type": "integer", "const": 1 },
+    "updatedAt": {
+      "type": "string",
+      "description": "ISO-8601 UTC timestamp of the last run (Z-suffixed)."
+    },
+    "providers": {
+      "type": "object",
+      "required": ["clp", "towngas", "wsd"],
+      "additionalProperties": false,
+      "properties": {
+        "clp": { "$ref": "#/definitions/provider" },
+        "towngas": { "$ref": "#/definitions/provider" },
+        "wsd": { "$ref": "#/definitions/provider" }
+      }
+    }
+  },
+  "definitions": {
+    "provider": {
+      "type": "object",
+      "required": ["provider", "label", "ok", "value", "unit", "source", "stale"],
+      "additionalProperties": true,
+      "properties": {
+        "provider": { "type": "string", "enum": ["clp", "towngas", "wsd"] },
+        "label": { "type": "string" },
+        "ok": { "type": "boolean" },
+        "value": { "type": ["number", "null"] },
+        "unit": { "type": "string" },
+        "period": { "type": ["string", "null"] },
+        "asOf": { "type": ["string", "null"] },
+        "source": { "type": "string", "enum": ["scrape", "manual"] },
+        "stale": { "type": "boolean" },
+        "error": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

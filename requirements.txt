@@ -1,0 +1,5 @@
+# Runtime + test dependencies (pinned to reasonable, widely-available versions).
+playwright==1.44.0      # headless Chromium for SPA / JS-heavy portal logins
+requests==2.32.3        # plain HTTP where a full browser is unnecessary
+jsonschema==4.22.0      # validates public/data.json against schema.json
+pytest==8.2.2           # test runner (offline, no creds needed)
