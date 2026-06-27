@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-27T09:26:30Z",
+  "updatedAt": "2026-06-27T10:12:13Z",
   "providers": {
     "clp": {
       "provider": "clp",
@@ -9,10 +9,10 @@
       "value": null,
       "unit": "kWh",
       "period": null,
-      "asOf": "2026-06-27T09:26:30Z",
-      "source": "manual",
+      "asOf": "2026-06-27T10:12:06Z",
+      "source": "scrape",
       "stale": false,
-      "error": "no CLP_USERNAME/CLP_PASSWORD set; using manual fallback"
+      "error": "no password field found on CLP login page (likely OTP-only); use manual_data.json for CLP."
     },
     "towngas": {
       "provider": "towngas",
@@ -21,10 +21,10 @@
       "value": null,
       "unit": "units",
       "period": null,
-      "asOf": "2026-06-27T09:26:30Z",
-      "source": "manual",
+      "asOf": "2026-06-27T10:12:10Z",
+      "source": "scrape",
       "stale": false,
-      "error": "no TOWNGAS_USERNAME/TOWNGAS_PASSWORD set; using manual fallback"
+      "error": "Towngas login shows a second factor / CAPTCHA; cannot automate. Use manual_data.json for Towngas."
     },
     "wsd": {
       "provider": "wsd",
@@ -33,10 +33,10 @@
       "value": null,
       "unit": "m3",
       "period": null,
-      "asOf": "2026-06-27T09:26:30Z",
-      "source": "manual",
+      "asOf": "2026-06-27T10:12:13Z",
+      "source": "scrape",
       "stale": false,
-      "error": "no WSD_USERNAME/WSD_PASSWORD set; using manual fallback"
+      "error": "no password field found on WSD login page; use manual_data.json."
     }
   }
 }
